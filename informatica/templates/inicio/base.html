@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-nav">
+        <div class="container-fluid">
+            
+            <a class="navbar-brand" href="{% if request.user.id_rol.name == 'Administrador'%} {% url 'index' %} {% else %} {% url 'indexpanol' %} {% endif %}">
+               <img src="{% static 'image/logoadventista.png' %}" style="width: 50px; height: 50px;">
+                Sistema Bodega
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    {% if request.user.id_rol.name == "Administrador" %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'usuarios' %}">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'material' %}">Materiales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'docente' %}">Docentes</a>
+                        </li>
+                    {% endif %}
+                    {% if request.user.id_rol.name == "Panol" %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'indexpanol' %}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'prestamo' %}">Préstamo</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link">Cerrar sesión</button>
+                    </form>
+                    {% endif %}
+                
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer class="footer mt-5 py-3 custom-footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Servicio Bodega. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

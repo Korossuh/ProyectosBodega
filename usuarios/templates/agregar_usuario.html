@@ -1,0 +1,48 @@
+{% extends 'inicio/base.html' %}
+{% block title %}Agregar Usuario{% endblock title %}
+
+{% block content %}
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    form form[action] {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    button[type="button"] {
+        background-color: #FF5722;
+    }
+</style>
+<body >
+    <div>
+        <h2 >Usuario</h2>
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Confirmar</button>
+            </form>
+            <br>
+            <form action="{% url 'usuarios'%}">
+                <button >Cancelar</button>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
+

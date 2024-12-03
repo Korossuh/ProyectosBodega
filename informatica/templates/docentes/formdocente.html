@@ -1,0 +1,43 @@
+{% extends 'inicio/base.html' %}
+
+{% block title %}Formulario Docente{% endblock title %}
+
+{% block content %}
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    form form[action] {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    button[type="button"] {
+        background-color: #FF5722;
+    }
+</style>
+<main>
+    <form method="post">
+        <h1>Formulario Docentes</h1>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <form action="{% url 'docente'%}">
+        <button >Cancelar</button>
+    </form>
+</main>
+    
+{% endblock content %}

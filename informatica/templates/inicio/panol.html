@@ -1,0 +1,13 @@
+{% extends 'inicio/base.html' %}
+
+{% block content %}
+<main>
+    <h1 class="">Bienvenido<strong>
+      {% if user.is_authenticated %}
+      {{user.username}}
+      {% else %}
+      {% endif %}
+      </strong>al sistema de Bodega</h1>
+      <h3>Esta es la vista de panol</h3>
+</main>
+{% endblock %}

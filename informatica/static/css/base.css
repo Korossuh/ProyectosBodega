@@ -1,0 +1,161 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --background-color: #ecf0f1;
+    --text-color: #34495e;
+    --navbar-color: #2c3e50;
+    --footer-color: #34495e;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos personalizados para el nav */
+.custom-nav {
+    background-color: var(--navbar-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.8) !important;
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.nav-link:hover {
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+/* Estilos para el contenido principal */
+main {
+    flex: 1 0 auto;
+    padding: 2rem 0;
+}
+
+/* Estilos para las tarjetas y botones */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,.15);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+/* Estilos personalizados para el footer */
+.custom-footer {
+    background-color: var(--footer-color);
+    color: white;
+    box-shadow: 0 -2px 10px rgba(0,0,0,.1);
+}
+
+.custom-footer p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Animaciones y efectos adicionales */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Estilos para tablas */
+.table {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+}
+
+.table thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Estilos para formularios */
+.form-control {
+    border-radius: 20px;
+    border: 1px solid #ced4da;
+    padding: 0.5rem 1rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Estilos para alertas y mensajes */
+.alert {
+    border-radius: 10px;
+    border: none;
+}
+
+.alert-success {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.alert-danger {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 1rem 0;
+    }
+}
+
+img{
+    width: 20px;
+    height: 20px;
+}
